@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(express.static("public"));
- 
+
 mongoose.connect("mongodb://localhost:27017/userDB", {useNewUrlParser: true, useUnifiedTopology: true});
 
 const userSchema = new mongoose.Schema({
