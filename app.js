@@ -17,14 +17,14 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(express.static("public"));
-
+ 
 mongoose.connect("mongodb://localhost:27017/userDB", {useNewUrlParser: true, useUnifiedTopology: true});
 
 const userSchema = new mongoose.Schema({
   email: String,
   password: String
 });
- 
+
 const secret = process.env.SECRET;
 
 userSchema.plugin(encrypt, { secret: secret, encryptedFields: ["password"] });
